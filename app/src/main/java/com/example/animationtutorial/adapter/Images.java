@@ -19,7 +19,7 @@ package com.example.animationtutorial.adapter;
 import androidx.annotation.DrawableRes;
 import com.example.animationtutorial.R;
 
-abstract class ImageData {
+abstract class Images {
 
   // All images taken by me using my camera and subject to copyright ~Lovepreet Singh.
   @DrawableRes

@@ -20,11 +20,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import com.example.animationtutorial.fragment.ImageFragment;
-import static com.example.animationtutorial.adapter.ImageData.IMAGE_DRAWABLES;
+import static com.example.animationtutorial.adapter.Images.IMAGE_DRAWABLES;
 
-public class ImagePagerAdapter extends FragmentStatePagerAdapter {
+public class ImageAdapter extends FragmentStatePagerAdapter {
 
-  public ImagePagerAdapter(Fragment fragment) {
+  public ImageAdapter(Fragment fragment) {
     super(fragment.getChildFragmentManager(), BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
   }
 

@@ -39,7 +39,7 @@ import com.example.animationtutorial.R;
 import com.example.animationtutorial.adapter.CustomAdapter.ImageViewHolder;
 import com.example.animationtutorial.fragment.ImagePagerFragment;
 import java.util.concurrent.atomic.AtomicBoolean;
-import static com.example.animationtutorial.adapter.ImageData.IMAGE_DRAWABLES;
+import static com.example.animationtutorial.adapter.Images.IMAGE_DRAWABLES;
 
 public class CustomAdapter extends RecyclerView.Adapter<ImageViewHolder> {
 

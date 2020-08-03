@@ -28,7 +28,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 import com.example.animationtutorial.MainActivity;
 import com.example.animationtutorial.R;
-import com.example.animationtutorial.adapter.ImagePagerAdapter;
+import com.example.animationtutorial.adapter.ImageAdapter;
 
 import java.util.List;
 import java.util.Map;
@@ -40,7 +40,7 @@ public class ImagePagerFragment extends Fragment {
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
     viewPager = (ViewPager) inflater.inflate(R.layout.fragment_pager, container, false);
-    viewPager.setAdapter(new ImagePagerAdapter(this));
+    viewPager.setAdapter(new ImageAdapter(this));
     // Set the current position and add a listener that will update the selection coordinator when
     // paging the images.
     viewPager.setCurrentItem(MainActivity.currentPosition);
