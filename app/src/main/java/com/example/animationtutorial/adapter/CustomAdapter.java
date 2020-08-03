@@ -36,12 +36,12 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.example.animationtutorial.MainActivity;
 import com.example.animationtutorial.R;
-import com.example.animationtutorial.adapter.GridAdapter.ImageViewHolder;
+import com.example.animationtutorial.adapter.CustomAdapter.ImageViewHolder;
 import com.example.animationtutorial.fragment.ImagePagerFragment;
 import java.util.concurrent.atomic.AtomicBoolean;
 import static com.example.animationtutorial.adapter.ImageData.IMAGE_DRAWABLES;
 
-public class GridAdapter extends RecyclerView.Adapter<ImageViewHolder> {
+public class CustomAdapter extends RecyclerView.Adapter<ImageViewHolder> {
 
   private interface ViewHolderListener {
     void onLoadCompleted(ImageView view, int adapterPosition);
@@ -50,7 +50,7 @@ public class GridAdapter extends RecyclerView.Adapter<ImageViewHolder> {
 
   private final RequestManager requestManager;
   private final ViewHolderListener viewHolderListener;
-  public GridAdapter(Fragment fragment) {
+  public CustomAdapter(Fragment fragment) {
     this.requestManager = Glide.with(fragment);
     this.viewHolderListener = new ViewHolderListenerImpl(fragment);
   }
@@ -98,10 +98,8 @@ public class GridAdapter extends RecyclerView.Adapter<ImageViewHolder> {
     @Override
     public void onItemClicked(View view, int position) {
       MainActivity.currentPosition = position;
-
       ((TransitionSet) fragment.getExitTransition()).excludeTarget(view, true);
-
-      ImageView transitioningView = view.findViewById(R.id.card_image);
+      ImageView transitioningView = view.findViewById(R.id.image);
       fragment.getFragmentManager()
           .beginTransaction()
           .setReorderingAllowed(true)
@@ -123,7 +121,7 @@ public class GridAdapter extends RecyclerView.Adapter<ImageViewHolder> {
     ImageViewHolder(View itemView, RequestManager requestManager,
         ViewHolderListener viewHolderListener) {
       super(itemView);
-      this.image = itemView.findViewById(R.id.card_image);
+      this.image = itemView.findViewById(R.id.image);
       this.requestManager = requestManager;
       this.viewHolderListener = viewHolderListener;
       itemView.findViewById(R.id.card_view).setOnClickListener(this);

@@ -29,7 +29,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.animationtutorial.MainActivity;
 import com.example.animationtutorial.R;
-import com.example.animationtutorial.adapter.GridAdapter;
+import com.example.animationtutorial.adapter.CustomAdapter;
 import java.util.List;
 import java.util.Map;
 
@@ -45,7 +45,7 @@ public class GridFragment extends Fragment {
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
     recyclerView = (RecyclerView) inflater.inflate(R.layout.fragment_grid, container, false);
-    recyclerView.setAdapter(new GridAdapter(this));
+    recyclerView.setAdapter(new CustomAdapter(this));
 
     prepareTransitions();
     postponeEnterTransition();
@@ -110,7 +110,7 @@ public class GridFragment extends Fragment {
 
             // Map the first shared element name to the child ImageView.
             sharedElements
-                .put(names.get(0), selectedViewHolder.itemView.findViewById(R.id.card_image));
+                .put(names.get(0), selectedViewHolder.itemView.findViewById(R.id.image));
           }
         });
   }
