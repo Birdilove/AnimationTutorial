@@ -21,7 +21,7 @@ import com.example.animationtutorial.R;
 
 abstract class ImageData {
 
-  // All images taken by me using my camera and subject to copyright.
+  // All images taken by me using my camera and subject to copyright ~Lovepreet Singh.
   @DrawableRes
   static final int[] IMAGE_DRAWABLES = {
       R.drawable.creek1,
@@ -30,11 +30,8 @@ abstract class ImageData {
       R.drawable.image2,
       R.drawable.image3,
       R.drawable.image4,
-      R.drawable.image5,
-      R.drawable.image10,
       R.drawable.world,
       R.drawable.cloud,
-      R.drawable.image12
   };
 
 }
