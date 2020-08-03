@@ -55,21 +55,14 @@ public class ImageFragment extends Fragment {
 
     Bundle arguments = getArguments();
     @DrawableRes int imageRes = arguments.getInt(KEY_IMAGE_RES);
-
-    // Just like we do when binding views at the grid, we set the transition name to be the string
-    // value of the image res.
     view.findViewById(R.id.image).setTransitionName(String.valueOf(imageRes));
 
-    // Load the image with Glide to prevent OOM error when the image drawables are very large.
     Glide.with(this)
         .load(imageRes)
         .listener(new RequestListener<Drawable>() {
           @Override
           public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable>
               target, boolean isFirstResource) {
-            // The postponeEnterTransition is called on the parent ImagePagerFragment, so the
-            // startPostponedEnterTransition() should also be called on it to get the transition
-            // going in case of a failure.
             getParentFragment().startPostponedEnterTransition();
             return false;
           }
@@ -77,9 +70,6 @@ public class ImageFragment extends Fragment {
           @Override
           public boolean onResourceReady(Drawable resource, Object model, Target<Drawable>
               target, DataSource dataSource, boolean isFirstResource) {
-            // The postponeEnterTransition is called on the parent ImagePagerFragment, so the
-            // startPostponedEnterTransition() should also be called on it to get the transition
-            // going when the image is ready.
             getParentFragment().startPostponedEnterTransition();
             return false;
           }

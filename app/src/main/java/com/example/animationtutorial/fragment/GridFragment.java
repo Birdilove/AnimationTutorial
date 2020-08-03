@@ -33,9 +33,7 @@ import com.example.animationtutorial.adapter.CustomAdapter;
 import java.util.List;
 import java.util.Map;
 
-/**
- * A com.example.animationtutorial.fragment for displaying a grid of images.
- */
+
 public class GridFragment extends Fragment {
 
   private RecyclerView recyclerView;
@@ -59,10 +57,6 @@ public class GridFragment extends Fragment {
     scrollToPosition();
   }
 
-  /**
-   * Scrolls the recycler view to show the last viewed item in the grid. This is important when
-   * navigating back from the grid.
-   */
   private void scrollToPosition() {
     recyclerView.addOnLayoutChangeListener(new OnLayoutChangeListener() {
       @Override
@@ -78,8 +72,6 @@ public class GridFragment extends Fragment {
         recyclerView.removeOnLayoutChangeListener(this);
         final RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
         View viewAtPosition = layoutManager.findViewByPosition(MainActivity.currentPosition);
-        // Scroll to position if the view for the current position is null (not currently part of
-        // layout manager children), or it's not completely visible.
         if (viewAtPosition == null || layoutManager
             .isViewPartiallyVisible(viewAtPosition, false, true)) {
           recyclerView.post(() -> layoutManager.scrollToPosition(MainActivity.currentPosition));
@@ -88,15 +80,9 @@ public class GridFragment extends Fragment {
     });
   }
 
-  /**
-   * Prepares the shared element transition to the pager com.example.animationtutorial.fragment, as well as the other transitions
-   * that affect the flow.
-   */
   private void prepareTransitions() {
     setExitTransition(TransitionInflater.from(getContext())
         .inflateTransition(R.transition.grid_exit_transition));
-
-    // A similar mapping is set at the ImagePagerFragment with a setEnterSharedElementCallback.
     setExitSharedElementCallback(
         new SharedElementCallback() {
           @Override
@@ -107,8 +93,6 @@ public class GridFragment extends Fragment {
             if (selectedViewHolder == null) {
               return;
             }
-
-            // Map the first shared element name to the child ImageView.
             sharedElements
                 .put(names.get(0), selectedViewHolder.itemView.findViewById(R.id.image));
           }

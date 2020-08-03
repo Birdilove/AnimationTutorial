@@ -59,7 +59,7 @@ public class CustomAdapter extends RecyclerView.Adapter<ImageViewHolder> {
   @Override
   public ImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
     View view = LayoutInflater.from(parent.getContext())
-        .inflate(R.layout.image_card, parent, false);
+        .inflate(R.layout.image, parent, false);
     return new ImageViewHolder(view, requestManager, viewHolderListener);
   }
 
